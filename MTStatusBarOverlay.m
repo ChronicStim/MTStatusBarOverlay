@@ -1496,10 +1496,19 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
             [self setDetailViewHidden:self.detailViewHidden animated:YES];
             
             // update history table-view
-            [self.historyTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newHistoryMessageIndexPath]
-                                         withRowAnimation:UITableViewRowAnimationFade];
-            [self.historyTableView scrollToRowAtIndexPath:newHistoryMessageIndexPath
-                                         atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            @synchronized(self.historyTableView) {
+                @try {
+//                    DDLogInfo(@"TableView: %@\nNewIndexPath: (%i,%i)\nNewMessage: %@\nMessageHistory: %@",self.historyTableView,[newHistoryMessageIndexPath section],[newHistoryMessageIndexPath row],message,self.messageHistory);
+                    [self.historyTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newHistoryMessageIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    [self.historyTableView scrollToRowAtIndexPath:newHistoryMessageIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                }
+                @catch (NSException *exception) {
+                    DDLogError(@"Exception: %@",[exception userInfo]);
+                }
+                @finally {
+                    
+                }
+            }
         }
 	}
 }
