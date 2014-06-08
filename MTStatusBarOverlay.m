@@ -432,7 +432,7 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
 		finishedLabel_.text = kFinishedText;
 		finishedLabel_.textAlignment = NSTextAlignmentCenter;
 		finishedLabel_.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:kFinishedFontSize];
-        finishedLabel_.adjustsFontSizeToFitWidth = YES;
+//        finishedLabel_.adjustsFontSizeToFitWidth = YES;
 		[self addSubviewToBackgroundView:finishedLabel_];
         
 		// Status Label 1 is first visible
