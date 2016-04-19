@@ -1512,7 +1512,7 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
                     [self.historyTableView scrollToRowAtIndexPath:newHistoryMessageIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
                 }
                 @catch (NSException *exception) {
-                    DDLogError(@"Exception: %@",[exception userInfo]);
+                    CPT_LOGError(@"Exception: %@",[exception userInfo]);
                 }
                 @finally {
                     
