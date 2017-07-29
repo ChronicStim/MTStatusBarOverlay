@@ -139,7 +139,7 @@ MAX([UIApplication sharedApplication].statusBarFrame.size.width, [UIApplication 
 ///////////////////////////////////////////////////////
 
 // minimum time that a message is shown, when messages are queued
-#define kMinimumMessageVisibleTime				0.4f
+#define kMinimumMessageVisibleTime				0.0f
 
 // duration of the animation to show next status message in seconds
 #define kNextStatusAnimationDuration			0.6f
